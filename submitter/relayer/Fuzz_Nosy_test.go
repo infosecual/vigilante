@@ -3,6 +3,8 @@ package relayer
 import (
 	"testing"
 
+	checkpointingtypes "github.com/babylonlabs-io/babylon/x/checkpointing/types"
+	"github.com/babylonlabs-io/vigilante/types"
 	"github.com/btcsuite/btcd/btcutil"
 	"github.com/btcsuite/btcd/wire"
 	go_fuzz_utils "github.com/trailofbits/go-fuzz-utils"
@@ -90,7 +92,7 @@ func Fuzz_Nosy_Relayer_MaybeResubmitSecondCheckpointTx__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var ckpt *types.RawCheckpointWithMetaResponse
+		var ckpt *checkpointingtypes.RawCheckpointWithMetaResponse
 		fill_err = tp.Fill(&ckpt)
 		if fill_err != nil {
 			return
@@ -115,7 +117,7 @@ func Fuzz_Nosy_Relayer_SendCheckpointToBTC__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var ckpt *types.RawCheckpointWithMetaResponse
+		var ckpt *checkpointingtypes.RawCheckpointWithMetaResponse
 		fill_err = tp.Fill(&ckpt)
 		if fill_err != nil {
 			return
@@ -247,7 +249,7 @@ func Fuzz_Nosy_Relayer_convertCkptToTwoTxAndSubmit__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var ckpt *types.RawCheckpointResponse
+		var ckpt *checkpointingtypes.RawCheckpointResponse
 		fill_err = tp.Fill(&ckpt)
 		if fill_err != nil {
 			return
@@ -272,7 +274,7 @@ func Fuzz_Nosy_Relayer_encodeCheckpointData__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var ckpt *types.RawCheckpointResponse
+		var ckpt *checkpointingtypes.RawCheckpointResponse
 		fill_err = tp.Fill(&ckpt)
 		if fill_err != nil {
 			return
@@ -407,7 +409,7 @@ func Fuzz_Nosy_Relayer_retrySendTx2__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var ckpt *types.RawCheckpointResponse
+		var ckpt *checkpointingtypes.RawCheckpointResponse
 		fill_err = tp.Fill(&ckpt)
 		if fill_err != nil {
 			return

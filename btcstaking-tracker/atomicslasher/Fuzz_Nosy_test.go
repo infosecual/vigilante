@@ -4,6 +4,9 @@ import (
 	"context"
 	"testing"
 
+	bbn "github.com/babylonlabs-io/babylon/types"
+	btcstakingtypes "github.com/babylonlabs-io/babylon/x/btcstaking/types"
+	types "github.com/babylonlabs-io/babylon/x/btcstaking/types"
 	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/wire"
@@ -306,7 +309,7 @@ func Fuzz_Nosy_BabylonAdapter_IsFPSlashed__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var fpBTCPK *types.BIP340PubKey
+		var fpBTCPK *bbn.BIP340PubKey
 		fill_err = tp.Fill(&fpBTCPK)
 		if fill_err != nil {
 			return
@@ -392,7 +395,7 @@ func Fuzz_Nosy_MockBabylonClient_BTCDelegations__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var status types.BTCDelegationStatus
+		var status btcstakingtypes.BTCDelegationStatus
 		fill_err = tp.Fill(&status)
 		if fill_err != nil {
 			return
@@ -592,12 +595,12 @@ func Fuzz_Nosy_parseSlashingTxWitness__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var covPKs []types.BIP340PubKey
+		var covPKs []bbn.BIP340PubKey
 		fill_err = tp.Fill(&covPKs)
 		if fill_err != nil {
 			return
 		}
-		var fpPKs []types.BIP340PubKey
+		var fpPKs []bbn.BIP340PubKey
 		fill_err = tp.Fill(&fpPKs)
 		if fill_err != nil {
 			return
@@ -614,7 +617,7 @@ func Fuzz_Nosy_tryExtractFPSK__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var covSigMap map[string]*types.BIP340Signature
+		var covSigMap map[string]*bbn.BIP340Signature
 		fill_err = tp.Fill(&covSigMap)
 		if fill_err != nil {
 			return
@@ -624,7 +627,7 @@ func Fuzz_Nosy_tryExtractFPSK__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var fpPK *types.BIP340PubKey
+		var fpPK *bbn.BIP340PubKey
 		fill_err = tp.Fill(&fpPK)
 		if fill_err != nil {
 			return

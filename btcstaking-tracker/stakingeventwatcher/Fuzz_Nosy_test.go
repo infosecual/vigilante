@@ -4,13 +4,15 @@ import (
 	"context"
 	"testing"
 
+	bbnclient "github.com/babylonlabs-io/babylon/client/client"
+	btcctypes "github.com/babylonlabs-io/babylon/x/btccheckpoint/types"
+	"github.com/babylonlabs-io/babylon/x/btcstaking/types"
 	"github.com/babylonlabs-io/vigilante/config"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/wire"
 	gomock "github.com/golang/mock/gomock"
 	"github.com/lightningnetwork/lnd/chainntnfs"
 	go_fuzz_utils "github.com/trailofbits/go-fuzz-utils"
-	"go.etcd.io/etcd/client/v2"
 )
 
 func GetTypeProvider(data []byte) (*go_fuzz_utils.TypeProvider, error) {
@@ -40,7 +42,7 @@ func Fuzz_Nosy_BabylonClientAdapter_ActivateDelegation__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var babylonClient *client.Client
+		var babylonClient *bbnclient.Client
 		fill_err = tp.Fill(&babylonClient)
 		if fill_err != nil {
 			return
@@ -60,7 +62,7 @@ func Fuzz_Nosy_BabylonClientAdapter_ActivateDelegation__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var proof *types.BTCSpvProof
+		var proof *btcctypes.BTCSpvProof
 		fill_err = tp.Fill(&proof)
 		if fill_err != nil {
 			return
@@ -81,7 +83,7 @@ func Fuzz_Nosy_BabylonClientAdapter_BtcClientTipHeight__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var babylonClient *client.Client
+		var babylonClient *bbnclient.Client
 		fill_err = tp.Fill(&babylonClient)
 		if fill_err != nil {
 			return
@@ -107,7 +109,7 @@ func Fuzz_Nosy_BabylonClientAdapter_DelegationsByStatus__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var babylonClient *client.Client
+		var babylonClient *bbnclient.Client
 		fill_err = tp.Fill(&babylonClient)
 		if fill_err != nil {
 			return
@@ -148,7 +150,7 @@ func Fuzz_Nosy_BabylonClientAdapter_IsDelegationActive__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var babylonClient *client.Client
+		var babylonClient *bbnclient.Client
 		fill_err = tp.Fill(&babylonClient)
 		if fill_err != nil {
 			return
@@ -179,7 +181,7 @@ func Fuzz_Nosy_BabylonClientAdapter_IsDelegationVerified__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var babylonClient *client.Client
+		var babylonClient *bbnclient.Client
 		fill_err = tp.Fill(&babylonClient)
 		if fill_err != nil {
 			return
@@ -210,7 +212,7 @@ func Fuzz_Nosy_BabylonClientAdapter_Params__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var babylonClient *client.Client
+		var babylonClient *bbnclient.Client
 		fill_err = tp.Fill(&babylonClient)
 		if fill_err != nil {
 			return
@@ -236,7 +238,7 @@ func Fuzz_Nosy_BabylonClientAdapter_QueryHeaderDepth__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var babylonClient *client.Client
+		var babylonClient *bbnclient.Client
 		fill_err = tp.Fill(&babylonClient)
 		if fill_err != nil {
 			return
@@ -267,7 +269,7 @@ func Fuzz_Nosy_BabylonClientAdapter_ReportUnbonding__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var babylonClient *client.Client
+		var babylonClient *bbnclient.Client
 		fill_err = tp.Fill(&babylonClient)
 		if fill_err != nil {
 			return
@@ -328,7 +330,7 @@ func Fuzz_Nosy_MockBabylonNodeAdapter_ActivateDelegation__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var proof *types.BTCSpvProof
+		var proof *btcctypes.BTCSpvProof
 		fill_err = tp.Fill(&proof)
 		if fill_err != nil {
 			return
@@ -669,7 +671,7 @@ func Fuzz_Nosy_StakingEventWatcher_activateBtcDelegation__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var proof *types.BTCSpvProof
+		var proof *btcctypes.BTCSpvProof
 		fill_err = tp.Fill(&proof)
 		if fill_err != nil {
 			return

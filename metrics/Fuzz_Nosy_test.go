@@ -3,9 +3,9 @@ package metrics
 import (
 	"testing"
 
-	"github.com/babylonlabs-io/babylon/x/btcstaking/types"
 	"github.com/prometheus/client_golang/prometheus"
 	go_fuzz_utils "github.com/trailofbits/go-fuzz-utils"
+	bstypes "github.com/babylonlabs-io/babylon/x/btcstaking/types"
 )
 
 func GetTypeProvider(data []byte) (*go_fuzz_utils.TypeProvider, error) {
@@ -40,7 +40,7 @@ func Fuzz_Nosy_SlasherMetrics_RecordSlashedDelegation__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var del *types.BTCDelegationResponse
+		var del *bstypes.BTCDelegationResponse
 		fill_err = tp.Fill(&del)
 		if fill_err != nil {
 			return

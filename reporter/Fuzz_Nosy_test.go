@@ -4,6 +4,9 @@ import (
 	"context"
 	"testing"
 
+	btccheckpointtypes "github.com/babylonlabs-io/babylon/x/btccheckpoint/types"
+	"github.com/babylonlabs-io/babylon/x/btclightclient/types"
+	vigilantetypes "github.com/babylonlabs-io/vigilante/types"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/wire"
 	gomock "github.com/golang/mock/gomock"
@@ -179,7 +182,7 @@ func Fuzz_Nosy_MockBabylonClient_InsertBTCSpvProof__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var msg *types.MsgInsertBTCSpvProof
+		var msg *btccheckpointtypes.MsgInsertBTCSpvProof
 		fill_err = tp.Fill(&msg)
 		if fill_err != nil {
 			return
@@ -409,7 +412,7 @@ func Fuzz_Nosy_Reporter_ProcessCheckpoints__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var ibs []*types.IndexedBlock
+		var ibs []*vigilantetypes.IndexedBlock
 		fill_err = tp.Fill(&ibs)
 		if fill_err != nil {
 			return
@@ -439,7 +442,7 @@ func Fuzz_Nosy_Reporter_ProcessHeaders__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var ibs []*types.IndexedBlock
+		var ibs []*vigilantetypes.IndexedBlock
 		fill_err = tp.Fill(&ibs)
 		if fill_err != nil {
 			return
@@ -654,7 +657,7 @@ func Fuzz_Nosy_Reporter_extractCheckpoints__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var ib *types.IndexedBlock
+		var ib *vigilantetypes.IndexedBlock
 		fill_err = tp.Fill(&ib)
 		if fill_err != nil {
 			return
@@ -684,7 +687,7 @@ func Fuzz_Nosy_Reporter_getHeaderMsgsToSubmit__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var ibs []*types.IndexedBlock
+		var ibs []*vigilantetypes.IndexedBlock
 		fill_err = tp.Fill(&ibs)
 		if fill_err != nil {
 			return
@@ -784,7 +787,7 @@ func Fuzz_Nosy_Reporter_processNewBlock__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var ib *types.IndexedBlock
+		var ib *vigilantetypes.IndexedBlock
 		fill_err = tp.Fill(&ib)
 		if fill_err != nil {
 			return

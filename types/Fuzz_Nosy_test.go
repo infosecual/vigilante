@@ -5,6 +5,7 @@ import (
 
 	"github.com/babylonlabs-io/babylon/btctxformatter"
 	"github.com/babylonlabs-io/babylon/x/checkpointing/types"
+	checkpointingtypes "github.com/babylonlabs-io/babylon/x/checkpointing/types"
 	"github.com/boljen/go-bitmap"
 	"github.com/btcsuite/btcd/btcjson"
 	"github.com/btcsuite/btcd/btcutil"
@@ -445,7 +446,7 @@ func Fuzz_Nosy_CheckpointRecord_EpochNum__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var ckpt *types.RawCheckpoint
+		var ckpt *checkpointingtypes.RawCheckpoint
 		fill_err = tp.Fill(&ckpt)
 		if fill_err != nil {
 			return
@@ -471,7 +472,7 @@ func Fuzz_Nosy_CheckpointRecord_ID__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var ckpt *types.RawCheckpoint
+		var ckpt *checkpointingtypes.RawCheckpoint
 		fill_err = tp.Fill(&ckpt)
 		if fill_err != nil {
 			return
@@ -678,7 +679,7 @@ func Fuzz_Nosy_EpochInfo_VerifyMultiSig__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var ckpt *types.RawCheckpoint
+		var ckpt *checkpointingtypes.RawCheckpoint
 		fill_err = tp.Fill(&ckpt)
 		if fill_err != nil {
 			return

@@ -6,7 +6,12 @@ import (
 
 	"github.com/babylonlabs-io/babylon/btcstaking"
 	"github.com/babylonlabs-io/babylon/testutil/datagen"
+	"github.com/babylonlabs-io/babylon/types"
+	bbn "github.com/babylonlabs-io/babylon/types"
+	btcctypes "github.com/babylonlabs-io/babylon/x/btccheckpoint/types"
+	bstypes "github.com/babylonlabs-io/babylon/x/btcstaking/types"
 	"github.com/babylonlabs-io/vigilante/e2etest/container"
+	vigilantetypes "github.com/babylonlabs-io/vigilante/types"
 	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/wire"
@@ -699,7 +704,7 @@ func Fuzz_Nosy_TestManager_createStakingAndSlashingTx__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var bsParams *types.QueryParamsResponse
+		var bsParams *bstypes.QueryParamsResponse
 		fill_err = tp.Fill(&bsParams)
 		if fill_err != nil {
 			return
@@ -709,7 +714,7 @@ func Fuzz_Nosy_TestManager_createStakingAndSlashingTx__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var topUTXO *types.UTXO
+		var topUTXO *vigilantetypes.UTXO
 		fill_err = tp.Fill(&topUTXO)
 		if fill_err != nil {
 			return
@@ -765,7 +770,7 @@ func Fuzz_Nosy_TestManager_createUnbondingData__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var bsParams *types.QueryParamsResponse
+		var bsParams *bstypes.QueryParamsResponse
 		fill_err = tp.Fill(&bsParams)
 		if fill_err != nil {
 			return
@@ -980,7 +985,7 @@ func Fuzz_Nosy_TestManager_insertSpvProofs__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var proofs []*types.BTCSpvProof
+		var proofs []*btcctypes.BTCSpvProof
 		fill_err = tp.Fill(&proofs)
 		if fill_err != nil {
 			return
@@ -1201,7 +1206,7 @@ func Fuzz_Nosy_bbnPksToBtcPks__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var pks []types.BIP340PubKey
+		var pks []bbn.BIP340PubKey
 		fill_err = tp.Fill(&pks)
 		if fill_err != nil {
 			return

@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/babylonlabs-io/vigilante/types"
+	vigilantetypes "github.com/babylonlabs-io/vigilante/types"
 	"github.com/btcsuite/btcd/wire"
 	go_fuzz_utils "github.com/trailofbits/go-fuzz-utils"
 	"go.uber.org/zap"
@@ -400,7 +401,7 @@ func Fuzz_Nosy_BtcScanner_sendConfirmedBlocksToChan__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var blocks []*types.IndexedBlock
+		var blocks []*vigilantetypes.IndexedBlock
 		fill_err = tp.Fill(&blocks)
 		if fill_err != nil {
 			return
@@ -425,7 +426,7 @@ func Fuzz_Nosy_BtcScanner_tryToExtractCheckpoint__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var block *types.IndexedBlock
+		var block *vigilantetypes.IndexedBlock
 		fill_err = tp.Fill(&block)
 		if fill_err != nil {
 			return
@@ -450,7 +451,7 @@ func Fuzz_Nosy_BtcScanner_tryToExtractCkptSegment__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var b *types.IndexedBlock
+		var b *vigilantetypes.IndexedBlock
 		fill_err = tp.Fill(&b)
 		if fill_err != nil {
 			return

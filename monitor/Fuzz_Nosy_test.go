@@ -3,6 +3,9 @@ package monitor
 import (
 	"testing"
 
+	"github.com/babylonlabs-io/babylon/x/checkpointing/types"
+	checkpointingtypes "github.com/babylonlabs-io/babylon/x/checkpointing/types"
+	vigilantetypes "github.com/babylonlabs-io/vigilante/types"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/wire"
 	query "github.com/cosmos/cosmos-sdk/types/query"
@@ -414,7 +417,7 @@ func Fuzz_Nosy_Monitor_CheckLiveness__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var cr *types.CheckpointRecord
+		var cr *vigilantetypes.CheckpointRecord
 		fill_err = tp.Fill(&cr)
 		if fill_err != nil {
 			return
@@ -619,7 +622,7 @@ func Fuzz_Nosy_Monitor_VerifyCheckpoint__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var btcCkpt *types.RawCheckpoint
+		var btcCkpt *checkpointingtypes.RawCheckpoint
 		fill_err = tp.Fill(&btcCkpt)
 		if fill_err != nil {
 			return
@@ -644,7 +647,7 @@ func Fuzz_Nosy_Monitor_addCheckpointToCheckList__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var ckpt *types.CheckpointRecord
+		var ckpt *vigilantetypes.CheckpointRecord
 		fill_err = tp.Fill(&ckpt)
 		if fill_err != nil {
 			return
@@ -694,7 +697,7 @@ func Fuzz_Nosy_Monitor_handleNewConfirmedCheckpoint__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var ckpt *types.CheckpointRecord
+		var ckpt *vigilantetypes.CheckpointRecord
 		fill_err = tp.Fill(&ckpt)
 		if fill_err != nil {
 			return
@@ -719,7 +722,7 @@ func Fuzz_Nosy_Monitor_handleNewConfirmedHeader__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var block *types.IndexedBlock
+		var block *vigilantetypes.IndexedBlock
 		fill_err = tp.Fill(&block)
 		if fill_err != nil {
 			return

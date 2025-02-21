@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/babylonlabs-io/vigilante/config"
-	"github.com/babylonlabs-io/vigilante/types"
+	vigilantetypes "github.com/babylonlabs-io/vigilante/types"
 	"github.com/btcsuite/btcd/btcjson"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/wire"
@@ -899,7 +899,7 @@ func Fuzz_Nosy_Client_getChainBlocks__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var tipBlock *types.IndexedBlock
+		var tipBlock *vigilantetypes.IndexedBlock
 		fill_err = tp.Fill(&tipBlock)
 		if fill_err != nil {
 			return

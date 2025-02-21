@@ -3,6 +3,8 @@ package btcslasher
 import (
 	"testing"
 
+	bbn "github.com/babylonlabs-io/babylon/types"
+	bstypes "github.com/babylonlabs-io/babylon/x/btcstaking/types"
 	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
 	coretypes "github.com/cometbft/cometbft/rpc/core/types"
@@ -193,7 +195,7 @@ func Fuzz_Nosy_BTCSlasher_getAllActiveAndUnbondedBTCDelegations__(f *testing.F) 
 		if fill_err != nil {
 			return
 		}
-		var fpBTCPK *types.BIP340PubKey
+		var fpBTCPK *bbn.BIP340PubKey
 		fill_err = tp.Fill(&fpBTCPK)
 		if fill_err != nil {
 			return
@@ -325,7 +327,7 @@ func Fuzz_Nosy_BTCSlasher_sendSlashingTx__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var fpBTCPK *types.BIP340PubKey
+		var fpBTCPK *bbn.BIP340PubKey
 		fill_err = tp.Fill(&fpBTCPK)
 		if fill_err != nil {
 			return
@@ -335,7 +337,7 @@ func Fuzz_Nosy_BTCSlasher_sendSlashingTx__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var del *types.BTCDelegationResponse
+		var del *bstypes.BTCDelegationResponse
 		fill_err = tp.Fill(&del)
 		if fill_err != nil {
 			return
@@ -365,7 +367,7 @@ func Fuzz_Nosy_BTCSlasher_slashBTCDelegation__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var fpBTCPK *types.BIP340PubKey
+		var fpBTCPK *bbn.BIP340PubKey
 		fill_err = tp.Fill(&fpBTCPK)
 		if fill_err != nil {
 			return
@@ -375,7 +377,7 @@ func Fuzz_Nosy_BTCSlasher_slashBTCDelegation__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var del *types.BTCDelegationResponse
+		var del *bstypes.BTCDelegationResponse
 		fill_err = tp.Fill(&del)
 		if fill_err != nil {
 			return
@@ -692,12 +694,12 @@ func Fuzz_Nosy_findFPIdxInWitness__(f *testing.F) {
 		if fill_err != nil {
 			return
 		}
-		var fpBTCPK *types.BIP340PubKey
+		var fpBTCPK *bbn.BIP340PubKey
 		fill_err = tp.Fill(&fpBTCPK)
 		if fill_err != nil {
 			return
 		}
-		var fpBtcPkList []types.BIP340PubKey
+		var fpBtcPkList []bbn.BIP340PubKey
 		fill_err = tp.Fill(&fpBtcPkList)
 		if fill_err != nil {
 			return
